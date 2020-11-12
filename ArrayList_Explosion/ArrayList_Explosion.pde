@@ -66,16 +66,16 @@ class Shape {
 
   void display() {
     if (shapetype==1){
-      fill(255,0,0);
+      fill(round(random(0,255)),round(random(0,85)),round(random(0,85)));
       ellipse(x, y, this.scale, this.scale);
     }
     if (shapetype==2){
-      fill(0,255,0);
+      fill(round(random(0,85)),round(random(0,255)),round(random(0,85)));
       rectMode(CENTER);
       rect(x, y, this.scale,this.scale);
     }
     if (shapetype==3){
-      fill(0,0,255);
+      fill(round(random(0,85)),round(random(0,85)),round(random(0,255)));
       triangle(x-(this.scale/2), y+(+this.scale/2), x, y-(this.scale*0.4),x+(this.scale/2),y+this.scale/2);
     }
   }
