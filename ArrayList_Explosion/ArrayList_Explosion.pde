@@ -1,11 +1,18 @@
+import processing.sound.*;
+
+SoundFile explosion;
 ArrayList<Shape> shapes = new ArrayList<Shape>();
 int nextshapetype;
 int globalscale = 20;
+
 void setup() {
   size(800, 800);
+  frameRate(60);
+  explosion = new SoundFile(this, "explosion.mp3");
 }
 
 void mousePressed(){
+  explosion.play();
   nextshapetype++;
   if (nextshapetype==4){
   nextshapetype=1;
