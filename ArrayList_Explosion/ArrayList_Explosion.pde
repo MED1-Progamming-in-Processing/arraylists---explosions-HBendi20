@@ -1,5 +1,6 @@
 ArrayList<Shape> shapes = new ArrayList<Shape>();
 int nextshapetype;
+int globalscale = 20;
 void setup() {
   size(800, 800);
 }
@@ -32,12 +33,21 @@ class Shape {
   float x;
   float y;
   int shapetype;
+  int scale;
   float xSpeed = random(-5, 5);
   float ySpeed = random(-5, 5);
   
   Shape(float x, float y, int z){
     this.x = x;
     this.y = y;
+    this.scale = globalscale;
+    this.shapetype=z;
+  }
+  
+  Shape(float x, float y, int z, int s){
+    this.x = x;
+    this.y = y;
+    this.scale =s;
     this.shapetype=z;
   }
  
@@ -50,16 +60,16 @@ class Shape {
   void display() {
     if (shapetype==1){
       fill(255,0,0);
-      ellipse(x, y, 20, 20);
+      ellipse(x, y, this.scale, this.scale);
     }
     if (shapetype==2){
       fill(0,255,0);
       rectMode(CENTER);
-      rect(x, y, 20, 20);
+      rect(x, y, this.scale,this.scale);
     }
     if (shapetype==3){
       fill(0,0,255);
-      triangle(x-10, y+10, x, y-8,x+10,y+10);
+      triangle(x-(this.scale/2), y+(+this.scale/2), x, y-(this.scale*0.4),x+(this.scale/2),y+this.scale/2);
     }
   }
   
